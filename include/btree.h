@@ -1,7 +1,7 @@
 #ifndef BTREE_H
 #define BTREE_H
 
-struct tree_node {
+typedef struct tree_node {
   int item;
   struct tree_node *left;
   struct tree_node *right;

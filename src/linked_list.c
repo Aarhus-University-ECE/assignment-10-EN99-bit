@@ -23,8 +23,8 @@ void free_list(node *p) {
 }
 
 /* print list to console */
-void print_list(node *p) {
-if(p == NULL){ 
+void print_list(node *p) { 
+if(p == NULL){  //base case
 return;
 }  
 else{
@@ -36,21 +36,26 @@ else{
 
 int sum_squares(node *p) {
   // Add your code for excercise 2
-  if(p == NULL) {
-return;
-  }
-  else{
-return p->value*p->value;
-    }
-  // You can find the tests in tests.cpp
-  return sum_squares(p);
+  if(p == NULL) { //base case
+return 0;
 }
+  else{
+return square(p->value)+sum_squares(p->next);
+      }
+  // You can find the tests in tests.cpp
+  }
 
 typedef int (*fn_int_to_int)(int);
 
 node *map(node *p, fn_int_to_int f) { 
   // Add your code for excercise 3
-  
+  if (p == NULL){ //base case: Done going through the list
+    return NULL;
+  }
+  else{
+  return make_node(f(p->value),map(p->next,f));
+   }
+
   return NULL; 
 }
 
