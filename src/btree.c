@@ -13,11 +13,11 @@ struct tree_node *Insert(int x, struct tree_node *t) {
 // 3: These two rules also include the value of the childrens children
 
 if (t == NULL){ //if value is Null, create root
-struct tree_node *temp = malloc(sizeof(struct tree_node));
-temp->item = x;
-temp->left = NULL;
-temp->right = NULL;
-return temp;
+struct tree_node *new_node = malloc(sizeof(struct tree_node));
+new_node->item = x;
+new_node->left = NULL;
+new_node->right = NULL;
+return new_node;
 }
 
 if (x<=t->item){
@@ -41,7 +41,7 @@ int Contains(int x, struct tree_node *t) {
 
   // Return true if the tree t contains item x. Return false otherwise.
 
-  if (t->item == NULL){
+  if (t->item == NULL){ //Base case in case the element doesn't exist
     return 0;
   }
 
@@ -52,17 +52,15 @@ if (t->item == x){
 if (x<t->item){
   return Contains(x,t->left);
 }
-
-if (x>t->item){
+if (x<t->item){
   return Contains(x,t->right);
 }
-
 }
 
+
+
 struct tree_node *Initialize(struct tree_node *t) {
-  // Create an empty tree
-  // Empty tree is NULL
-  t = NULL;
+   t = NULL;
   return t;
 }
 
@@ -72,7 +70,5 @@ int Empty(struct tree_node *t) {
 }
 
 int Full(struct tree_node *t) {
-  // Test if full
-
-  return 1;
+  return 0;
 }
