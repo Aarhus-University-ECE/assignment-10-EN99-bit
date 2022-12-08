@@ -120,6 +120,7 @@ TEST_CASE("btree") {
   root = Insert(3, root);
 
   REQUIRE(Contains(3, root) == 1);
+  printf("YES\n");
 
   root = Remove(3, root);
 
@@ -167,6 +168,7 @@ TEST_CASE("btree") {
 
  // REQUIRE(Full(root) == 1);
 
+  
   root = Remove(7, root);
 
   REQUIRE(Contains(16, root) == 1);
@@ -182,7 +184,9 @@ TEST_CASE("btree") {
   REQUIRE(Contains(40, root) == 1);
   REQUIRE(Contains(45, root) == 0);
 
+  
   root = Remove(1, root);
+  printf("NO\n");
   root = Remove(7, root);
   root = Remove(12, root);
   root = Remove(9, root);
