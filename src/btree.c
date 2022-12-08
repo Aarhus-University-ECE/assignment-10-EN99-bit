@@ -60,7 +60,6 @@ struct tree_node* Remove(int x, struct tree_node* t) {
 			return t;
 		}
 
-
 		// Case 2: If the node to be removed only has one child, the child takes it's place.
 		if (t->right == NULL && t->left != NULL) // If right child is epmpty and left is not.
 		{
@@ -69,9 +68,7 @@ struct tree_node* Remove(int x, struct tree_node* t) {
 			return temp;
 		}
 
-    
-
-		if (t->right != NULL && t->left == NULL) // If left child is epmpty and right is not.
+    if (t->right != NULL && t->left == NULL) // If left child is epmpty and right is not.
 		{
 			struct tree_node* temp = t->right;
 			free(t);
